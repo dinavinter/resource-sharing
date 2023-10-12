@@ -1,0 +1,16 @@
+{
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      },
+      "accessToken": "ZjVkM2E4NTQtODA2Yi00MzAyLTg4YzktZTczZTBmODFiNzc3fHJlYWQtd3JpdGU="
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}
