@@ -1,0 +1,39 @@
+{
+  "name": "ts",
+  "version": "0.0.0",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ts/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ts",
+        "main": "packages/ts/src/index.ts",
+        "tsConfig": "packages/ts/tsconfig.lib.json",
+        "assets": ["packages/ts/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs ts {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ts/**/*.ts", "packages/ts/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/ts"
+      }
+    }
+  },
+  "tags": ["scope:gvil", "type:lib"]
+}
