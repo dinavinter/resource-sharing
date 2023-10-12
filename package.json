@@ -1,14 +1,14 @@
 {
   "name": "gvil",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "nx build",
+    "build": "nx run-many --target=build --all --parallel",
     "publish": "nx publish --tag=beta ts",
     "gentypes": "nx run-many --target=generate --all --parallel",
     "genwts": "npx nx generate @nx/js:library $name --preset=ts --directory=/packages/$name --publishable --importPath=@gvil/$name --tags=scope:gvil,type:lib"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@swc/helpers": "~0.5.2"
   },
