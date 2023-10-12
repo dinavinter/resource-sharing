@@ -1,33 +1,113 @@
-# resource-sharing
+# Resource-Sharing Platform
 
-## personas:
-### organizations - hospitals, volunteer centers, military bases, etc
-### individuals
+## Table of Contents
 
-## joining the system:
-register or dynamically created [according to forums, whatsapp groups, etc]
-each persona has available resources and missing resources
-each with quantity and possible location, time, category and other details
-e.g. available 3 combat-vests in TLV
-e.g. missing 20 volunteers in Beer Sheva tomorrow
-with every added available resource -
-the system tries to find a match of someone who is missing the same resource
-and vise versa
-when a match is found -
-alert each party [via whatsapp-bot]
-allow them to communicate directly
-ask if they've set it - if so
-allow each party to confirm resource-transaction
-each approval comes with the actual quantity that was moved
-updating the persona's available/missing accordingly
-n-match scenario:
-e.g. 2-match transaction
-X has 3 vests in TLV and Y need 10 vests in Beer Sheva
-Z has an available "transport" from TLV
-match into 2-resource-transaction:
-X->Z , Z->Y
+- [Overview](#overview)
+- [Personas](#personas)
+- [Features](#features)
+  - [Joining the System](#joining-the-system)
+  - [Resource Management](#resource-management)
+  - [Matching and Notifications](#matching-and-notifications)
+  - [Transactions](#transactions)
+
+---
+
+## Overview
+
+This platform aims to facilitate the sharing of resources between different entities, such as organizations and individuals. It matches available resources with those in need and notifies both parties for further action.
 
 
+---
+
+## Personas
+
+### Organizations
+
+Entities like hospitals, volunteer centers, and military bases that have resources to offer or are in need of specific resources.
 
 
+```json
+{
+  "id": "123",
+  "name": "hospital",
+  "desc": "a good place to volunteer"
+}
+```
+
+### Individuals
+
+People who either want to donate resources or are seeking specific resources for themselves.
+
+```json
+{
+  "id": "789",
+  "name": "baryo",
+  "available": {
+    "food box": [
+      {
+        "quantity": 3,
+        "location": "TLV"
+      }
+    ]
+  }
+
+}
+```
+
+---
+
+## Features
+
+### Joining the System
+
+- Users can either register manually or be dynamically created based on data from forums, WhatsApp groups, etc.
+
+### Resource Management
+
+- Each persona (organization or individual) can list resources they have available or are missing.
+- Resources can have additional details such as quantity, location, time, and category.
+- Examples: 
+    - 3 combat-vests available in TLV
+    - Need 20 volunteers in Beer Sheva tomorrow
+
+```json
+{
+  "available": {
+    "food box": [
+      {
+        "quantity": 3,
+        "location": "TLV"
+      }
+    ]
+  }
+}
+```
+
+### Matching and Notifications
+
+- The system automatically matches available resources with missing resources.
+- When a match is found, both parties are alerted via selected channel.
+
+```mermaid
+sequenceDiagram
+  User1->>System: List available resources
+  User2->>System: List missing resources
+  System->>WhatsApp Bot: Found a match
+  WhatsApp Bot->>User1: Alert
+  WhatsApp Bot->>User2: Alert
+```
+
+### Transactions
+
+- Parties can communicate directly to finalize the transaction.
+- Both parties can confirm the transaction, updating the quantity of resources available or missing.
+- The system supports multi-resource transactions.
+
+```mermaid
+graph TD
+  X[User X: Has vests] --> Z[User Z: Can transport]
+  Z --> Y[User Y: Needs vests]
+```
+
+---
 

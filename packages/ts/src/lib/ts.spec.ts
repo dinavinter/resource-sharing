@@ -1,7 +1,7 @@
-import { ts } from './ts';
+import { examples } from './ts';
 
 describe('ts', () => {
   it('should work', () => {
-    expect(ts()).toEqual('ts');
+    expect(new examples().orgs).toBeTruthy();
   });
 });
