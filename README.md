@@ -118,20 +118,20 @@ graph TD
 ```yaml
 packages:
     ts: # pure TS functunality
-     lib:
+     src:
        ts.ts # types 
        
      
 ```
 
 ### Install
-Run "yarn"
+Run `yarn`
 
 ### Building
 
-Run `nx build` to build all workspace.
+Run `yarn build` to build all workspace.
 
-Run `nx build ts` to build the specific package.
+Run `npx nx build ts` to build the specific package.
 
 ## Generate new package
 

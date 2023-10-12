@@ -13,12 +13,26 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
 
-  test: {
-    globals: true,
-    cache: {
-      dir: '../../node_modules/.vitest',
+    build: { 
+      sourcemap: true,
+      target: 'esnext',
+      lib: { 
+        entry: 'src/index.ts',
+        name: 'ts',
+        fileName: (format) => `ts.${format}.js`,
+
+      }
     },
-    environment: 'node',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-  },
-});
+    
+   
+    test: {
+      globals: true,
+      cache: {
+        dir: '../../node_modules/.vitest',
+      },
+      environment: 'node',
+      include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    },
+  });
+
+ 

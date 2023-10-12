@@ -1,16 +1,20 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "forceConsistentCasingInFileNames": true,
+    "rootDirs": ["src"],
     "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "../../dist/types",
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "types": [
+      "node",
+      "jest"
+    ]
   },
   "files": [],
-  "include": [],
+  "include": [  ],
   "references": [
     {
       "path": "./tsconfig.lib.json"

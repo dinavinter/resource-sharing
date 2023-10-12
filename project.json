@@ -9,13 +9,6 @@
         "config": ".verdaccio/config.yml",
         "storage": "tmp/local-registry/storage"
       }
-    },
-    "build": {
-      "executor": "nx:run-commands",
-      "outputs": [],
-      "options": {
-        "command": "nx run-many --target=build --all --parallel"
-      }
     }
   }
 }

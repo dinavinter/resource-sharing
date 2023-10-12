@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gvil/ts": ["packages/ts/src/index.ts"],
-      "ts2": ["ts/src/index.ts"]
+      "@gvil/ts": ["packages/ts/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
